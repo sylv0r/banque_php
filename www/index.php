@@ -15,5 +15,5 @@ include_once __DIR__ . "/../src/templates/template.php";
 // include_once __DIR__ . "/../src/templates/partials/head.php";
 // echo $page_content;
 // include_once __DIR__ . "/../src/templates/partials/footer.php";
-//index
+//index1
 
