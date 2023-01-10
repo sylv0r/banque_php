@@ -2,6 +2,7 @@
 $page_title = "Login - monsite.com";
 
 ob_start();
+show_error();
 ?>
 
 <?php show_error(); ?>
