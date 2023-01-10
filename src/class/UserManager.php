@@ -12,8 +12,8 @@ class UserManager{
         $stmh= $this -> db -> prepare('INSERT INTO users(email, password, role, last_ip) VALUES(?,?,?,?)');
         $stmh->execute([
             $user->email,
-            $user->password, 
-            $user->role, 
+            $user->password,
+            $user->role,
             $user->last_ip
         ]);
 
