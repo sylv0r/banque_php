@@ -6,10 +6,10 @@
     <li><a href="/?page=login">Login</a></li>
 <?php } else { ?>
     <li><?= $user->email; ?></li>
+    <li><a href="/?page=depot">Dépot</a></li>
     <li><a href="/actions/logout.php">logout</a></li>
     
 <?php } ?>
+    <li><a href="/?page=admin_depot">admin_depot</a></li>
     <li><a href="/?page=admin_contact">admin_contact</a></li>
-
-
 </ul>

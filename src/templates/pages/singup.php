@@ -2,9 +2,9 @@
 $page_title = "Login - monsite.com";
 
 ob_start();
-?>
+show_error(); 
 
-<?php show_error(); ?>
+?>
 <h1>Singup</h1>
 <form action="/actions/singup.php" method="post">
     <div>

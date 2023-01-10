@@ -3,6 +3,7 @@
 
 require_once __DIR__ . "/../../src/init.php";
 
+
 if (!isset($_POST['email'],$_POST['password'])){
     error_die('Erreur du fomulaire', '/?page=login');
 }
