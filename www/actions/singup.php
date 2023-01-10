@@ -21,7 +21,7 @@ if ($alreadyUser != false){
     error_die('Deja inscrit', '/?page=singup');
 }
 
-$user = User::create($_POST['email'], $_POST['password'], 1, $_SERVER['REMOTE_ADDR']);
+$user = User::create($_POST['email'], $_POST['password'], $_SERVER['REMOTE_ADDR'], 1);
 $user_id = $userManager->insert($user);
 
 $_SESSION['user_id'] = $user_id;
