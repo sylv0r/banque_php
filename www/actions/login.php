@@ -3,7 +3,7 @@
 
 require_once __DIR__ . "/../../src/init.php";
 
-if (!isset($_POST['email'],$_POST['password'],$_POST['cpassword'] )){
+if (!isset($_POST['email'],$_POST['password'])){
     error_die('Erreur du fomulaire', '/?page=login');
 }
 
@@ -22,6 +22,6 @@ if (!$user -> verifyPassword($_POST['password'])){
     error_die('mdp incorect', '/?page=login');
 }
 
-$_SESSION['user_id'] = $user->id();
+$_SESSION['user_id'] = $user -> id;
 
 header('Location: /?page=home');

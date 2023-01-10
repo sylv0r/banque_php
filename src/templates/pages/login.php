@@ -4,6 +4,7 @@ $page_title = "Login - monsite.com";
 ob_start();
 ?>
 
+<?php show_error(); ?>
 <h1>Login</h1>
 
 <form action="/actions/login.php" method="post">

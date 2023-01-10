@@ -14,7 +14,7 @@ class UserManager{
             $user->email,
             $user->password, 
             $user->role, 
-            $user->lasr_ip
+            $user->last_ip
         ]);
 
         return $this->db->lastInsertId();

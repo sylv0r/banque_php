@@ -6,14 +6,14 @@ class User{
     public $password;
     public $role;
     public $created_at;
-    public $lasr_ip;
+    public $last_ip;
 
     public static function create($email, $password, $role=1, $ip){
         $user = new User();
         $user->email = $email;
         $user->password = hash('sha256', $password);
+        $user->last_ip = $ip;
         $user->role = $role;
-        $user->lasr_ip = $ip;
         return $user;
     }
     public function verifyPassword($password){
