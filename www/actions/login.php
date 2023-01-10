@@ -20,6 +20,6 @@ if (!$user -> verifyPassword($_POST['password'])){
     error_die('mdp incorect', '/?page=login');
 }
 
-$_SESSION['user_id'] = $user->id;
+$_SESSION['user_id'] = $user -> id;
 
 header('Location: /?page=home');
