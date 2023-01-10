@@ -1,0 +1,19 @@
+.h1depot{
+    text-align: center;
+    padding: 50pt;
+}
+
+.input-group{
+    margin-bottom: 20px;
+    border: 1px solid black;
+}
+
+.buttondepot {
+    display: flex; /* permet de disposer les éléments en ligne */
+    justify-content: center; /* centre horizontalement les éléments en ligne */
+    align-items: center; /* centre verticalement les éléments en ligne */
+    width: 150px; /* définit la largeur du bouton */
+    height: 40px; /* définit la hauteur du bouton */
+    margin: 0 auto; /* centre horizontalement le bouton en prenant en compte la largeur définie */
+    
+}
