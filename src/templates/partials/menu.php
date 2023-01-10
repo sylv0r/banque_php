@@ -10,6 +10,4 @@
     
 <?php } ?>
     <li><a href="/?page=admin_contact">admin_contact</a></li>
-
-
 </ul>
