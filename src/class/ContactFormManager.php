@@ -5,7 +5,6 @@ class ContactFormManager{
 
     function __construct($bdd){
         $this->db = $bdd;
-
     }
 
     public function save_contact_form($fullname, $phone, $email, $message){
@@ -23,11 +22,5 @@ class ContactFormManager{
         $stmh->execute();
         $donnees = $stmh->fetchAll(PDO::FETCH_CLASS, 'ContactForm');
         return $donnees;
-
-
-       
-        
-        
-  
     }
 }
