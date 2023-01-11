@@ -9,6 +9,11 @@
 		<link rel="stylesheet" href="/css/header.css">
 		<title><?= $page_title; ?></title>
 		<?= $head_metas ;?>
+		<script>
+			var e = document.getElementById("ddlViewBy");
+			var value = e.value;
+			var text = e.options[e.selectedIndex].text;
+		</script>
 	</head>
 	<body>
 		<?php 

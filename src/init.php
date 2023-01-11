@@ -26,6 +26,10 @@ require_once __DIR__ . '/class/User.php';
 
 require_once __DIR__ . '/class/BankAccount.php';
 
+require_once __DIR__ . '/class/Currency.php';
+
+require_once __DIR__ . '/class/Transaction.php';
+
 //inclure les managers
 require_once __DIR__ . '/class/ContactFormManager.php';
 
@@ -33,11 +37,16 @@ require_once __DIR__ . '/class/UserManager.php';
 
 require_once __DIR__ . '/class/BankAccountManager.php';
 
+require_once __DIR__ . '/class/CurrencyManager.php';
+
+require_once __DIR__ . '/class/TransactionManager.php';
+
 
 //init les managers
 $contactFormManager = new ContactFormManager($db);
 $userManager = new UserManager($db);
 $bankAccountManager = new BankAccountManager($db);
+$currencyManager = new CurrencyManager($db);
 
 
 //session & auth
@@ -45,4 +54,5 @@ $user = false;
 if (isset($_SESSION['user_id'])){
     $user = $userManager->getById($_SESSION['user_id']);
     $bankAccount = $bankAccountManager->getAccountById($_SESSION['user_id']);
+    $currencies = $currencyManager->get_currencies();
 }
