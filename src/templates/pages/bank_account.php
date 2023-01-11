@@ -5,13 +5,16 @@ ob_start();
 show_error();
 ?>
 
-<?php show_error(); ?>
 <h1>Votre compte banquaire :</h1>
 
 <div>
-    <?php 
-    foreach($bankAccount as $row) {
-        ?><p><?= $row->amount . " " . $row->currency_name ?></p><?php
+    <?php
+    if (!empty($bankAccount)) {
+        foreach ($bankAccount as $row) {
+            ?><p><?= $row->amount . " " . $row->currency_name ?></p><?php
+        }
+    } else {
+        ?><p>Vous êtes à sec</p><?php
     }
     ?>
 </div>
