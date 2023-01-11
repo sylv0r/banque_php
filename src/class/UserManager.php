@@ -36,10 +36,10 @@ class UserManager{
     }
 
     public function getAllUsersExcept($id){
-        $stmh = $this->db->prepare('SELECT * FROM users WHERE id != ?');
+        $stmh = $this->db->prepare('SELECT DISTINCT * FROM users WHERE id != ?');
         $stmh->execute([$id]);
-        $user = $stmh->fetchAll(PDO::FETCH_CLASS, 'User');
-        return $user;
+        $users = $stmh->fetchAll(PDO::FETCH_CLASS, 'User');
+        return $users;
     }
 
     /*public function save_contact_form($fullname, $phone, $email, $message){

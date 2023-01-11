@@ -14,9 +14,13 @@ $areFoundsEnough = $bankAccountManager->areFoundsEnough($bankAccount, $_POST['cu
 if ($areFoundsEnough === false) {
     error_die("Fonds insuffisants", "/?page=transfer");
 }
+
+$currency_value_from = $currencyManager->get_currency_value_by_id($_POST['currency_from']);
+$currency_value_to = $currencyManager->get_currency_value_by_id($_POST['currency_to']);
+
+
 $transaction = Transaction::create($_POST['amount'], $_SESSION['user_id'], $_POST['currency_from'], $_POST['currency_to'], "transfer", $_POST['recipient']);
-$transactionManager->insert($transaction);
-$user_id = $userManager->insert($user);
+$transactionManager->insert($transaction, $currency_value_from, $currency_value_to);
 
 var_dump($_POST);
 header('Location: /?page=transfer');
