@@ -6,6 +6,18 @@ include('./../src/db.php');
 $users = $db->query('SELECT DISTINCT * FROM users WHERE role = 1');
 $requete = $users->fetchAll();
 
+$admin = 'admin';
+$_admin = 1000;
+
+$manager = 'manager';
+$_manager = 200;
+
+$verif = 'vérifié';
+$_verif = 10;
+
+$ban = 'banni';
+$_ban = 0;
+
 
 ?>
 
@@ -19,7 +31,7 @@ $requete = $users->fetchAll();
       <th scope="col">Role</th>
       <th scope="col">Created_At</th>
       <th scope="col">Last_IP</th>
-
+      <th scope="col"> </th>
     </tr>
   </thead>
   <tbody><?php
@@ -27,12 +39,20 @@ $requete = $users->fetchAll();
         ?><tr>
             <td><?=$row['id']?></td>
             <td><?=$row['email']?></td>
-            <td><?=$row['role']?></td>
+            <td>
+                <select>
+                    <option>attribuez un rôle</option>
+                    <option><?= $verif ;?></option>
+                    <option><?= $manager ;?></option>
+                    <option><?= $admin ;?></option>
+                    <option><?= $ban ;?></option>
+                </select>
+            </td>
             <td><?=$row['created_at']?></td>
             <td><?=$row['last_ip']?></td>
             <td>
-                <button type="button" class="btn btn-success btn-sm mb-3"><a href="update.php" style="color: white">Modify</a></button>
-                <button type="button" class="btn btn-danger btn-sm"><a href="delete.php" style="color: white">Delete</a></button>
+                <button type="button" class="btn btn-success btn-sm"><a href="update.php" style="color: white">Valider</a></button>
+                <button type="button" class="btn btn-danger btn-sm"><a href="delete.php" style="color: white">Refuser</a></button>
             </td>
         </tr><?php
     }?>
