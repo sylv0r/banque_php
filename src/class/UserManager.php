@@ -35,6 +35,13 @@ class UserManager{
         return $user;
     }
 
+    public function getAllUsersExcept($id){
+        $stmh = $this->db->prepare('SELECT * FROM users WHERE id != ?');
+        $stmh->execute([$id]);
+        $user = $stmh->fetchAll(PDO::FETCH_CLASS, 'User');
+        return $user;
+    }
+
     /*public function save_contact_form($fullname, $phone, $email, $message){
         $stmh = $this->db->prepare('INSERT INTO contact_forms(fullname, phone, email, message) VALUES(:fullname, :phone, :email, :message)');
         $stmh->execute([

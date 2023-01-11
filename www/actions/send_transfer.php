@@ -11,9 +11,12 @@ if (!is_numeric($_POST['currency_from']) || !is_numeric($_POST['currency_to'])) 
 }
 
 $areFoundsEnough = $bankAccountManager->areFoundsEnough($bankAccount, $_POST['currency_from'], $_POST['amount']);
-echo "response :" . $areFoundsEnough;
-
-//$transaction = Transaction::create($_POST['email'], $_POST['password'], $_SERVER['REMOTE_ADDR'], 1);
-//$user_id = $userManager->insert($user);
+if ($areFoundsEnough === false) {
+    error_die("Fonds insuffisants", "/?page=transfer");
+}
+$transaction = Transaction::create($_POST['amount'], $_SESSION['user_id'], $_POST['currency_from'], $_POST['currency_to'], "transfer", $_POST['recipient']);
+$transactionManager->insert($transaction);
+$user_id = $userManager->insert($user);
 
 var_dump($_POST);
+header('Location: /?page=transfer');

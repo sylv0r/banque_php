@@ -47,6 +47,7 @@ $contactFormManager = new ContactFormManager($db);
 $userManager = new UserManager($db);
 $bankAccountManager = new BankAccountManager($db);
 $currencyManager = new CurrencyManager($db);
+$transactionManager = new TransactionManager($db);
 
 
 //session & auth
