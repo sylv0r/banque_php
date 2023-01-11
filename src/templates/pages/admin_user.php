@@ -1,6 +1,11 @@
 <?php
 ob_start();
 $page_title = "Admin user - monsite.com";
+include('./../src/db.php');
+
+$users = $db->query('SELECT DISTINCT * FROM users');
+$requete = $users->fetchAll();
+
 
 ?>
 
@@ -16,31 +21,16 @@ $page_title = "Admin user - monsite.com";
       <th scope="col">Last_IP</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
+  <tbody><?php
+    foreach ($requete as $row) {
+        ?><tr>
+            <td><?=$row['id']?></td>
+            <td><?=$row['email']?></td>
+            <td><?=$row['role']?></td>
+            <td><?=$row['created_at']?></td>
+        </tr><?php
+    }?>
+    
   </tbody>
 </table>
 
