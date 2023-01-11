@@ -20,10 +20,8 @@ if (!$user -> verifyPassword($_POST['password'])){
     error_die('mdp incorect', '/?page=login');
 }
 
-<<<<<<<<< Temporary merge branch 1
-$_SESSION['user_id'] = $user->id;
-=========
+
 $_SESSION['user_id'] = $user -> id;
->>>>>>>>> Temporary merge branch 2
+
 
 header('Location: /?page=home');
