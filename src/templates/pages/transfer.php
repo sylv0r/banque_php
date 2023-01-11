@@ -14,7 +14,7 @@ $users = $userManager->getAllUsersExcept($_SESSION['user_id']);
 
     <label for="recipient">A quel utilisateur :</label>
     <select class="custom-select" name="recipient" id="recipient">
-        <option selected value="">--- Chosse an user ---</option>
+        <option selected value="">--- Choose an user ---</option>
         <?php
         
         foreach($users as $user) {
@@ -27,7 +27,7 @@ $users = $userManager->getAllUsersExcept($_SESSION['user_id']);
     
     <label for="currency_from">Depuis quelle compte :</label>
     <select class="custom-select" name="currency_from" id="currency_from">
-        <option selected value="">--- Chosse a currency ---</option>
+        <option selected value="">--- Choose a currency ---</option>
         <?php
         
         foreach($bankAccount as $currency) {
@@ -40,17 +40,17 @@ $users = $userManager->getAllUsersExcept($_SESSION['user_id']);
 
     <label for="currency_to">Vers quelle devise :</label>
     <select class="custom-select" name="currency_to" id="currency_to">
-        <option selected value="">--- Chosse a currency ---</option>
+        <option selected value="">--- Choose a currency ---</option>
         <?php 
         foreach($currencies as $currency) {
             ?>
-                <option value=<?= $currency->id ?>><?= "1.00 " . $currency->currency_name . " = " . $currency->currency_value . " USD"?></option>
+                <option value=<?= $currency->id ?>><?= $currency->currency_name . " (" . $currency->currency_value . " USD)"?></option>
             <?php
         }
         ?>
     </select>
 
-    <button class="btn btn-primary" type="submit">Button</button>
+    <button class="btn btn-primary" type="submit">Confirmer le virement</button>
 </form>
 
 <?php
