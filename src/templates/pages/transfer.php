@@ -1,5 +1,6 @@
 <?php
 $page_title = "Virement - monsite.com";
+$role = 10;
 
 ob_start();
 show_error();
