@@ -1,27 +1,21 @@
 <?php
 ob_start();
-$page_title = "Admin user - monsite.com";
+$page_title = "Manager user - monsite.com";
 include('./../src/db.php');
 
 $users = $db->query('SELECT DISTINCT * FROM users WHERE role = 1');
 $requete = $users->fetchAll();
 
-$admin = 'admin';
-$_admin = 1000;
+$_verif = 'vérifié';
+$verif = 10;
 
-$manager = 'manager';
-$_manager = 200;
+$_ban = 'banni';
+$ban = 0;
 
-$verif = 'vérifié';
-$_verif = 10;
-
-$ban = 'banni';
-$_ban = 0;
-
-
+show_error();
 ?>
 
-<h1>Admin user</h1>
+<h1>Manager user</h1>
 
 <table class="table">
   <thead>
@@ -40,19 +34,19 @@ $_ban = 0;
             <td><?=$row['id']?></td>
             <td><?=$row['email']?></td>
             <td>
-                <select>
-                    <option>attribuez un rôle</option>
-                    <option><?= $verif ;?></option>
-                    <option><?= $manager ;?></option>
-                    <option><?= $admin ;?></option>
-                    <option><?= $ban ;?></option>
-                </select>
+                <form action="/actions/update_admin_user.php" method="post" >
+                    <select name="role">
+                        <option>-- attribuez un rôle --</option>
+                        <option value=<?= $verif ?>><?= $_verif ;?></option>
+                        <option value=<?= $ban ?>><?= $_ban ;?></option>
+                    </select>
             </td>
             <td><?=$row['created_at']?></td>
             <td><?=$row['last_ip']?></td>
             <td>
-                <button type="button" class="btn btn-success btn-sm"><a href="update.php" style="color: white">Valider</a></button>
-                <button type="button" class="btn btn-danger btn-sm"><a href="delete.php" style="color: white">Refuser</a></button>
+                    <input type="hidden" name="user_id" value="<?= $row['id'] ?>">
+                    <button type="submit" class="btn btn-success btn-sm">Valider</button>
+                </form>
             </td>
         </tr><?php
     }?>
