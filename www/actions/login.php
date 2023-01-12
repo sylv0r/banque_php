@@ -5,7 +5,7 @@ require_once __DIR__ . "/../../src/init.php";
 
 
 if (!isset($_POST['email'],$_POST['password'])){
-    error_die('Erreur du fomulaire', '/?page=login');
+    error_die('Champs incomplets', '/?page=login');
 }
 
 if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL ) === false){

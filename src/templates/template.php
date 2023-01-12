@@ -11,23 +11,33 @@
 		<link rel="stylesheet" href="/css/admin_depot.css">
 		<title><?= $page_title; ?></title>
 		<?= $head_metas ;?>
+		<script>
+			var e = document.getElementById("ddlViewBy");
+			var value = e.value;
+			var text = e.options[e.selectedIndex].text;
+		</script>
 	</head>
 	<body>
 	<?php 
 	require_once __DIR__ . '/partials/header.php';
 	?>
         <div class="menu">
-            <?php require_once __DIR__ . '/partials/menu.php' ?>
+            <?php if (count($userManager->getAllUsersExcept())>0) require_once __DIR__ . '/partials/menu.php';
+			require_once __DIR__ . "/partials/alert_success.php"?>
         </div>
 
-		<?php include_once __DIR__ . '/partials/alert_success.php'; ?>
-	<?= $page_content ;?>
-	<?= $page_scripts ;?>
+				<?php include_once __DIR__ . '/partials/alert_success.php'; ?>
+		<?php
+			if (isset($user->role)) $actual_role = $user->role; 
+			else $actual_role = 1;
 
-	<?php 
-	require_once __DIR__ . '/partials/footer.php';
-	?>
-	
-		</style>
+			if ($actual_role >= $role) echo $page_content;
+			else echo "Vous n'avez pas les droits";
+		?>
+		<?= $page_scripts ;?>
+
+		<?php 
+		require_once __DIR__ . '/partials/footer.php';
+		?>
 	</body>
 </html>

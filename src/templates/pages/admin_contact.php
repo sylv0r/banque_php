@@ -1,6 +1,7 @@
 <?php
 ob_start();
 $page_title = "Admin contact - monsite.com";
+$role = 1000;
 $forms = $contactFormManager -> take_form();
 ?>
 

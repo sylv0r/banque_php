@@ -12,10 +12,9 @@ class UserManager{
         $stmh= $this -> db -> prepare('INSERT INTO users(email, password, role, last_ip) VALUES(?,?,?,?)');
         $stmh->execute([
             $user->email,
-            $user->password, 
-            $user->role, 
+            $user->password,
+            $user->role,
             $user->last_ip
-           
         ]);
 
         return $this->db->lastInsertId();
@@ -34,6 +33,13 @@ class UserManager{
         $stmh->setFetchMode(PDO::FETCH_CLASS, 'User');
         $user = $stmh->fetch();
         return $user;
+    }
+
+    public function getAllUsersExcept($id=0){
+        $stmh = $this->db->prepare('SELECT DISTINCT * FROM users WHERE id != ?');
+        $stmh->execute([$id]);
+        $users = $stmh->fetchAll(PDO::FETCH_CLASS, 'User');
+        return $users;
     }
 
     /*public function save_contact_form($fullname, $phone, $email, $message){

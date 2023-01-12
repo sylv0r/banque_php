@@ -1,5 +1,6 @@
 <?php
 $page_title = "Login - monsite.com";
+$role = 1;
 
 ob_start();
 show_error();
