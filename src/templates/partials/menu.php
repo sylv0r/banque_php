@@ -10,8 +10,9 @@
     <li><a href="/?page=transfer">Transfer</a></li>
     <?php if ($user->role >= 200) { ?>
     <li><a href="/?page=admin_contact">Admin contact</a></li>
-    <?php if ($user->role >= 1000) { ?>
     <li><a href="/?page=admin_user">Manage accounts</a></li>
+    <?php if ($user->role >= 1000) { ?>
+        <li><a href="/?page=admin">Admin panel</a></li>
     <?php }}} ?>
     <li><a href="/actions/logout.php">Logout</a></li>
 </ul> 
