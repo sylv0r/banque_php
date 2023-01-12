@@ -19,7 +19,6 @@ $page_content = "";
 $page_scripts = "";
 $head_metas = "";
 $role = 1;
-$role = 1;
 //
 require_once __DIR__ . '/class/ContactForm.php';
 

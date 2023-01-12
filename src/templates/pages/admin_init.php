@@ -3,9 +3,12 @@ $page_title = "Admin signup - monsite.com";
 $role = 1;
 
 ob_start();
-show_error(); 
+show_error();
 
-?>
+$users_number = count($userManager->getAllUsersExcept());
+
+if ($users_number === 0) {
+    ?>
 <h1>Admin</h1>
 <form action="/actions/signup_admin.php" method="post">
     <div>
@@ -25,4 +28,7 @@ show_error();
 </form>
 
 <?php
+} else {
+    echo "Le site à déjà été initialisé";
+}
 $page_content = ob_get_clean();
