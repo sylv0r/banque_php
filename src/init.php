@@ -18,6 +18,7 @@ $pages = ['home', 'contact','singup','login', 'admin_contact', "bank_account", '
 $page_content = "";
 $page_scripts = "";
 $head_metas = "";
+$role = 1;
 
 //
 require_once __DIR__ . '/class/ContactForm.php';

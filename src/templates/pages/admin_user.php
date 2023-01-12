@@ -2,15 +2,11 @@
 ob_start();
 $page_title = "Manager user - monsite.com";
 include('./../src/db.php');
+$role = 200;
 
 $users = $db->query('SELECT DISTINCT * FROM users WHERE role = 1');
 $requete = $users->fetchAll();
 
-$_verif = 'vérifié';
-$verif = 10;
-
-$_ban = 'banni';
-$ban = 0;
 
 show_error();
 ?>
@@ -37,8 +33,8 @@ show_error();
                 <form action="/actions/update_admin_user.php" method="post" >
                     <select name="role">
                         <option>-- attribuez un rôle --</option>
-                        <option value=<?= $verif ?>><?= $_verif ;?></option>
-                        <option value=<?= $ban ?>><?= $_ban ;?></option>
+                        <option value="10">vérifié</option>
+                        <option value="0">banni</option>
                     </select>
             </td>
             <td><?=$row['created_at']?></td>
