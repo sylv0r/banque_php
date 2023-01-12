@@ -5,8 +5,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="/css/footer.css">
-		<link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="/css/header.css">
 		<link rel="stylesheet" href="/css/depot.css">
 		<link rel="stylesheet" href="/css/admin_depot.css">
 		<title><?= $page_title; ?></title>
@@ -26,16 +26,16 @@
 			require_once __DIR__ . "/partials/alert_success.php"?>
         </div>
 
-				<?php include_once __DIR__ . '/partials/alert_success.php'; ?>
 		<?php
-			if (isset($user->role)) $actual_role = $user->role; 
-			else $actual_role = 1;
+            if (isset($user->role)) $actual_role = $user->role; 
+            else $actual_role = 1;
 
-			if ($actual_role >= $role) echo $page_content;
-			else echo "Vous n'avez pas les droits";
-		?>
-		<?= $page_scripts ;?>
+            if ($actual_role >= $role) echo $page_content;
+            else echo "Vous n'avez pas les droits";
+        ?>
+		
 
+		
 		<?php 
 		require_once __DIR__ . '/partials/footer.php';
 		?>

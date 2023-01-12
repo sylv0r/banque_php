@@ -12,13 +12,14 @@ require_once __DIR__ . '/db.php';
 require_once __DIR__ . '/utils/errors.php';
 
 // pages existantes sur notre site internet
-$pages = ['home', 'contact','singup','login','depot','retrait','admin_depot','admin_retrait', 'admin_contact', "bank_account", "transfer", "admin_init",];
+$pages = ['home', 'contact','singup','login','depot','retrait','admin_depot','admin_retrait', 'admin_contact', "bank_account", 'admin_user', "transfer", "admin_init",];
 
 // init variables vides pour le template
 $page_content = "";
 $page_scripts = "";
 $head_metas = "";
 $role = 1;
+
 //
 require_once __DIR__ . '/class/ContactForm.php';
 
