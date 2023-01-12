@@ -2,6 +2,10 @@
 
 require_once __DIR__ . "/../../src/init.php";
 
+$_POST['currency_from'] = htmlspecialchars($_POST['currency_from']);
+$_POST['currency_from'] = htmlspecialchars($_POST['currency_to']);
+$_POST['currency_from'] = htmlspecialchars($_POST['amount']);
+
 if (empty($_POST['currency_from']) || empty($_POST['currency_to']) || empty($_POST['amount'])) {
     error_die("Veuillez rentrer une valeur", "/?page=transfer");
 }
