@@ -10,16 +10,16 @@ $users = $userManager->getAllUsersExcept($_SESSION['user_id']);
 
 <form style="width: 20%; margin: 20px" action="/actions/send_transfer.php" method="post">
     <label for="amount">Montant du virement :</label>
-    <input type="number" step="0.01" name="amount" id="amount" class="form-control" placeholder="Montant" aria-label="Username" aria-describedby="basic-addon1">
+    <input type="number" step="0.01" min="0" name="amount" id="amount" class="form-control" placeholder="Montant" aria-label="Username" aria-describedby="basic-addon1">
 
     <label for="recipient">A quel utilisateur :</label>
     <select class="custom-select" name="recipient" id="recipient">
         <option selected value="">--- Choose an user ---</option>
         <?php
         
-        foreach($users as $user) {
+        foreach($users as $_user) {
             ?>
-                <option value=<?= $user->id ?>><?= $user->email?></option>
+                <option value=<?= $_user->id ?>><?= $_user->email?></option>
             <?php
         }
         ?>
