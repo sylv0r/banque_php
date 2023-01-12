@@ -2,6 +2,7 @@
 ob_start();
 $page_title = "Admin contact - monsite.com";
 $trans = $getRetrait -> take_retrait();
+$role = 200;
 ?>
 
 <h1 class="h1admindepot">Admin Retrait</h1>

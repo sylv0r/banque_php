@@ -2,6 +2,7 @@
 ob_start();
 $page_title = "Admin contact - monsite.com";
 $trans = $getDepot -> take_depot();
+$role = 200;
 ?>
 
 <h1 class="h1admindepot">Admin Depot</h1>
