@@ -52,6 +52,13 @@ class UserManager{
         return $users;
     }
 
+    public function take_users(){
+        $stmh = $this->db->prepare('SELECT DISTINCT * FROM users WHERE role = 1');
+        $stmh->execute();
+        $donnees = $stmh->fetchAll(PDO::FETCH_CLASS, 'User');
+        return $donnees;
+    }
+
     /*public function save_contact_form($fullname, $phone, $email, $message){
         $stmh = $this->db->prepare('INSERT INTO contact_forms(fullname, phone, email, message) VALUES(:fullname, :phone, :email, :message)');
         $stmh->execute([
@@ -67,5 +74,5 @@ class UserManager{
         $stmh->execute();
         $donnees = $stmh->fetchAll(PDO::FETCH_CLASS, 'User');
         return $donnees;
-    }
+    }*/
 }
