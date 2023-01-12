@@ -46,7 +46,7 @@ show_error();
             ?>
         </select>
 
-        <button class="btn btn-primary" type="submit">Confirmer le virement</button>
+        <button class="btn btn-primary" type="submit">Confirmer la conversion</button>
     </form>
 </div>
 

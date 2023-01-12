@@ -8,6 +8,6 @@
     <li><a href="/?page=bank_account">Bank Account</a></li>
     <li><a href="/?page=transfer">Transfer</a></li>
     <li><a href="/actions/logout.php">Logout</a></li>
-<?php } ?>
     <li><a href="/?page=admin_contact">admin_contact</a></li>
+    <?php } ?>
 </ul>

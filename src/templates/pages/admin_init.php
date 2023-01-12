@@ -1,5 +1,6 @@
 <?php
 $page_title = "Admin signup - monsite.com";
+$role = 1;
 
 ob_start();
 show_error(); 
@@ -24,5 +25,4 @@ show_error();
 </form>
 
 <?php
-
 $page_content = ob_get_clean();

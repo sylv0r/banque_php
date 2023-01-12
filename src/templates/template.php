@@ -20,15 +20,22 @@
 			require_once __DIR__ . "/partials/header.php"
 		?>
         <div class="menu">
-            <?php if (count($userManager->getAllUsersExcept())>0) require_once __DIR__ . '/partials/menu.php' ?>
+            <?php if (count($userManager->getAllUsersExcept())>0) require_once __DIR__ . '/partials/menu.php';
+			require_once __DIR__ . "/partials/alert_success.php"?>
         </div>
 
+		
+		<?php
+			if (isset($user->role)) $actual_role = $user->role; 
+			else $actual_role = 1;
 
-	<?= $page_content ;?>
-	<?= $page_scripts ;?>
+			if ($actual_role >= $role) echo $page_content;
+			else echo "Vous n'avez pas les droits";
+		?>
+		<?= $page_scripts ;?>
 
-	<?php 
-	require_once __DIR__ . '/partials/footer.php';
-	?>
+		<?php 
+		require_once __DIR__ . '/partials/footer.php';
+		?>
 	</body>
 </html>

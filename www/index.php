@@ -13,7 +13,7 @@ if ($users_number > 0) {
 	}
 } else {
 	$page = "admin_init";
-}	
+}
 //oui
 include_once __DIR__ . "/../src/templates/pages/$page.php";
 include_once __DIR__ . "/../src/templates/template.php";
