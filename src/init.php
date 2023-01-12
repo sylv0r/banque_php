@@ -12,7 +12,7 @@ require_once __DIR__ . '/db.php';
 require_once __DIR__ . '/utils/errors.php';
 
 // pages existantes sur notre site internet
-$pages = ['home', 'contact','singup','login','depot','admin_depot', 'admin_contact',];
+$pages = ['home', 'contact','singup','login','depot','retrait','admin_depot','admin_retrait', 'admin_contact',];
 
 // init variables vides pour le template
 $page_content = "";
@@ -24,6 +24,9 @@ require_once __DIR__ . '/class/ContactForm.php';
 
 require_once __DIR__ . '/class/GetDepot.php';
 require_once __DIR__ . '/class/Depot.php';
+
+require_once __DIR__ . '/class/GetRetrait.php';
+require_once __DIR__ . '/class/Retrait.php';
 
 require_once __DIR__ . '/class/Transaction.php';
 require_once __DIR__ . '/class/TransactionManager.php';
@@ -40,6 +43,7 @@ require_once __DIR__ . '/class/UserManager.php';
 //init les managers
 $contactFormManager = new ContactFormManager($db);
 $getDepot = new GetDepot($db);
+$getRetrait = new GetRetrait($db);
 $userManager = new UserManager($db);
 
 

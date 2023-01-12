@@ -32,31 +32,41 @@ class GetDepot{
         return $donnees;
     }
 
-    public function approved($id){
+    public function approved($id, $to_currency, $amount, $idtransaction){
         $stmh = $this -> db -> prepare('UPDATE `transactions` SET `approved`=1,`approved_date`= NOW(),`approved_by`= :sessione WHERE id = :id ;');
+        $stmh->execute([
+            'id' => $idtransaction,
+            'sessione' => $_SESSION['user_id'],
+        ]);
+
+        $search_currency = $this->db->prepare("SELECT id FROM bank_account WHERE user_id = :id AND currency = :cur");
+        $search_currency->execute([
+            'id' => $id,
+            'cur' => $to_currency
+        ]);
+        $row_count = $search_currency->rowCount();
+        echo $row_count;
+        if ($row_count == 0) {
+            $create_currency = $this->db->prepare("INSERT INTO bank_account(user_id, amount, currency) VALUES(?,?,?)");
+            $create_currency->execute([$id, $amount, $to_currency]);
+        } else {
+            $update_from = $this->db->prepare("UPDATE bank_account SET amount = amount + :amount WHERE user_id = :id AND currency = :cur ");
+            $update_from->execute([
+                'amount' => $amount,
+                'id' => $id,
+                'cur' => $to_currency
+            ]);
+        }
+    }
+    public function desapproved($id){
+        $stmh = $this -> db -> prepare('UPDATE `transactions` SET `approved`=0, `approved_date`= NOW(),`approved_by`= :sessione WHERE id = :id ;');
         $stmh->execute([
             'id' => $id,
             'sessione' => $_SESSION['user_id'],
         ]);
     }
-
-    public function desapproved($id){
-        $stmh = $this -> db -> prepare('UPDATE `transactions` SET `approved`=0 WHERE id = :id ;');
-        $stmh->execute([
-            'id' => $id,
-           
-        ]);
-    }
     
     public function save_depot_form($depot, $iduser, $idCur){
-        /*$stmh = $this->db->prepare('INSERT INTO contact_forms(fullname, phone, email, message) 
-                                    VALUES(:fullname, :phone, :email, :message)');
-        $stmh->execute([
-            'fullname' => $fullname,
-            'phone' => $phone,
-            'email' => $email,
-            'message' => $message,
-        ]); */
         $stmh = $this->db->prepare('INSERT INTO `transactions` (`id`, `amount`, `created_by`, `created_at`, `from_currency`,
                                     `to_currency`, `transaction_type`, `approved`, `approved_date`, `approved_by`)
                                     VALUES (NULL, :depot , :iduser, CURRENT_TIMESTAMP, :idCur, :idCur , "depot", NULL, NULL, NULL);');

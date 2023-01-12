@@ -1,10 +1,10 @@
 <?php
 ob_start();
 $page_title = "Admin contact - monsite.com";
-$trans = $getDepot -> take_depot();
+$trans = $getRetrait -> take_retrait();
 ?>
 
-<h1 class="h1admindepot">Admin Depot</h1>
+<h1 class="h1admindepot">Admin Retrait</h1>
 
 <?php show_error(); ?>
 <div>
@@ -29,9 +29,8 @@ $trans = $getDepot -> take_depot();
         <td><?= $cform -> created_by?></td>
         <td><?= $cform -> created_at?></td>
         <td><?= $cform -> from_currency?></td>
-    
         <td>
-            <form action="/actions/update_transaction.php" method="post">
+            <form action="/actions/update_transaction_retrait.php" method="post">
                 <input type="hidden" name="transaction_id" value="<?= $cform->id ?>">
                 <input type="hidden" name="created_by" value="<?= $cform -> created_by?>">
                 <input type="hidden" name="to_currency" value="<?= $cform -> to_currency?>">

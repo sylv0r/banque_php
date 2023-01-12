@@ -20,7 +20,7 @@
             <?php require_once __DIR__ . '/partials/menu.php' ?>
         </div>
 
-
+		<?php include_once __DIR__ . '/partials/alert_success.php'; ?>
 	<?= $page_content ;?>
 	<?= $page_scripts ;?>
 

@@ -9,7 +9,6 @@ ob_start();
 <h1>Contactez-nous</h1>
 
 <?php show_error(); ?>
-<?php include_once __DIR__ . '/../partials/alert_success.php'; ?>
 
 <form action="/actions/send_contact.php" method="POST">
 	<div>
