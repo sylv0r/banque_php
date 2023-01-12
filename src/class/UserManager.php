@@ -19,6 +19,16 @@ class UserManager{
 
         return $this->db->lastInsertId();
     }
+
+    public function update_role($id, $role){
+        $stmh= $this -> db -> prepare('UPDATE `users` SET `role`=? WHERE id = ?');
+        $stmh->execute([
+            $role,
+            $id
+        ]);
+
+    }
+
     public function getByEmail($email){
         $stmh = $this->db->prepare('SELECT * FROM users WHERE email = ?');
         $stmh->execute([$email]);
@@ -55,13 +65,7 @@ class UserManager{
     public function take_form(){
         $stmh = $this->db->prepare('SELECT * FROM contact_forms');
         $stmh->execute();
-        $donnees = $stmh->fetchAll(PDO::FETCH_CLASS, 'ContactForm');
+        $donnees = $stmh->fetchAll(PDO::FETCH_CLASS, 'User');
         return $donnees;
-
-
-       
-        
-        
-  
-    }*/
+    }
 }
