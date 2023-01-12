@@ -18,8 +18,8 @@ show_error();
     }
     ?>
     <form style="width: 20%; margin: 20px" action="/actions/convert.php" method="post">
-        <label for="amount">Montant du virement :</label>
-        <input type="number" step="0.01" name="amount" id="amount" class="form-control" placeholder="Montant" aria-label="Username" aria-describedby="basic-addon1">
+        <label for="amount">Montant de la conversion :</label>
+        <input type="number" step="0.01" min=0 name="amount" id="amount" class="form-control" placeholder="Montant" aria-label="Username" aria-describedby="basic-addon1">
         
         <label for="currency_from">Depuis quelle compte :</label>
         <select class="custom-select" name="currency_from" id="currency_from">
