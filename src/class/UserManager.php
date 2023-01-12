@@ -35,7 +35,7 @@ class UserManager{
         return $user;
     }
 
-    public function getAllUsersExcept($id){
+    public function getAllUsersExcept($id=0){
         $stmh = $this->db->prepare('SELECT DISTINCT * FROM users WHERE id != ?');
         $stmh->execute([$id]);
         $users = $stmh->fetchAll(PDO::FETCH_CLASS, 'User');

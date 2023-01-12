@@ -20,7 +20,7 @@
 			require_once __DIR__ . "/partials/header.php"
 		?>
         <div class="menu">
-            <?php require_once __DIR__ . '/partials/menu.php' ?>
+            <?php if (count($userManager->getAllUsersExcept())>0) require_once __DIR__ . '/partials/menu.php' ?>
         </div>
 
 
