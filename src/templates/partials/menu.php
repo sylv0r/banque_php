@@ -6,13 +6,13 @@
     <li class="nav-item"><a href="/?page=login" class="nav-link">Login</a></li>
 <?php } else { ?>
     <li><?= $user->email ?></li>
-    <li><a href="/?page=bank_account">Bank Account</a></li>
-    <li><a href="/?page=transfer">Transfer</a></li>
+    <li><a href="/?page=bank_account" class="nav-link">Bank Account</a></li>
+    <li><a href="/?page=transfer" class="nav-link">Transfer</a></li>
     <?php if ($user->role >= 200) { ?>
-    <li><a href="/?page=admin_contact">Admin contact</a></li>
-    <li><a href="/?page=admin_user">Manage accounts</a></li>
+    <li><a href="/?page=admin_contact" class="nav-link">Admin contact</a></li>
+    <li><a href="/?page=admin_user" class="nav-link">Manage accounts</a></li>
     <?php if ($user->role >= 1000) { ?>
-        <li><a href="/?page=admin">Admin panel</a></li>
+        <li><a href="/?page=admin" class="nav-link">Admin panel</a></li>
     <?php }}} ?>
-    <li><a href="/actions/logout.php">Logout</a></li>
+    <li><a href="/actions/logout.php" class="nav-link">Logout</a></li>
 </ul> 
