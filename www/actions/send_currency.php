@@ -24,6 +24,7 @@ if ($user->role >= 1000) {
     $currency = Currency::create($_POST['currency_name'], $_POST['currency_value']);
     $currencyManager->insert($currency);
 
+    $_SESSION['success_message'] = "Devise ajoutée";
     header('Location: /?page=admin_currency');
 } else {
     error_die("Vous n'avez les droits", "/?page=admin_currency");

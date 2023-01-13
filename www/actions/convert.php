@@ -25,5 +25,7 @@ $currency_value_to = $currencyManager->get_currency_value_by_id($_POST['currency
 $transaction = Transaction::create($_POST['amount'], $_SESSION['user_id'], $_POST['currency_from'], $_POST['currency_to'], "convert", $_SESSION['user_id']);
 $transactionManager->insert($transaction, $currency_value_from, $currency_value_to);
 
+$_SESSION['success_message'] = "Conversion faite";
+
 var_dump($_POST);
 header('Location: /?page=bank_account');
