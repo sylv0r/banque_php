@@ -66,5 +66,5 @@ class UserManager{
         $stmh->execute();
         $donnees = $stmh->fetchAll(PDO::FETCH_CLASS, 'User');
         return $donnees;
-    }*/
+    }
 }
