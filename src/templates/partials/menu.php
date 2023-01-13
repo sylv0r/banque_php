@@ -1,14 +1,15 @@
 <ul class="nav nav-tabs mb-4">
     <li class="nav-item"><a href="/?page=home" class="nav-link">Home</a></li>
-    <li class="nav-item"><a href="/?page=contact" class="nav-link">contact</a></li>
-    <li class="nav-item"><a href="/?page=bank_account" class="nav-link">Bank Account</a></li>
-    <li class="nav-item"><a href="/?page=transfer" class="nav-link">Transfer</a></li>
-    <li class="nav-item"><a href="/?page=my_transaction" class="nav-link">mes transaction</a></li>
 
 <?php if ($user === false){ ?>
     <li class="nav-item"><a href="/?page=singup" class="nav-link">Singup</a></li>
     <li class="nav-item"><a href="/?page=login" class="nav-link">Login</a></li>
 <?php } else { ?>
+    <li class="nav-item"><a href="/?page=contact" class="nav-link">contact</a></li>
+    <li class="nav-item"><a href="/?page=bank_account" class="nav-link">Bank Account</a></li>
+    <li class="nav-item"><a href="/?page=transfer" class="nav-link">Transfer</a></li>
+    <li class="nav-item"><a href="/?page=my_transaction" class="nav-link">mes transaction</a></li>
+
 
     <li class="nav-item"><a href="/?page=depot" class="nav-link">Dépot</a></li>
     <li class="nav-item"><a href="/?page=retrait" class="nav-link">Retrait</a></li>
