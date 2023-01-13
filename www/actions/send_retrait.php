@@ -13,7 +13,7 @@ if(isset($_POST)) {
     }
 }
 
-$areFoundsEnough = $bankAccountManager->areFoundsEnough($bankAccount, $_POST['currency_from'], $_POST['amount']);
+$areFoundsEnough = $bankAccountManager->areFoundsEnough($bankAccount, $_POST['idCur'], $_POST['amount']);
 if ($areFoundsEnough === false) {
     error_die("Fonds insuffisants", "/?page=retrait");
 }

@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="/css/header.css">
 		<link rel="stylesheet" href="/css/depot.css">
 		<link rel="stylesheet" href="/css/admin_depot.css">
+		<link rel="stylesheet" href="/css/transaction.css">
+
 		<title><?= $page_title; ?></title>
 		<?= $head_metas ;?>
 		<script>

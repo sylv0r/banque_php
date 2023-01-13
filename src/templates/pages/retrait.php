@@ -1,6 +1,6 @@
 <?php
 
-$page_title = "Dépot - MonSite.com";
+$page_title = "Dépot ";
 
 
 $totalcompte = $getRetrait -> getAmount($_SESSION['user_id']);
@@ -42,7 +42,6 @@ foreach($bankAccount as $currency) {
     }
     ?>
  
-    <input type="hidden" name="currency_from" value=<?= $gcurrencies -> id ?>>
 
 
     <br>

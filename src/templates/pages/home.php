@@ -1,6 +1,6 @@
 <?php
 
-$page_title = "Accueil - MonSite.com";
+$page_title = "Accueil";
 
 // $niceData = htmlspecialchars("Bonjour je tente une piraterie <script>alert('hacked')</script>");
 // $badData = "FAILLE XSS <script>alert('hacked')</script>";

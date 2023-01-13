@@ -1,5 +1,5 @@
 <?php
-$page_title = "Login - monsite.com";
+$page_title = "Login ";
 $role = 1;
 
 ob_start();

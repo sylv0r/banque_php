@@ -1,5 +1,5 @@
 <?php
-$page_title = "Virement - monsite.com";
+$page_title = "Virement";
 
 ob_start();
 show_error();

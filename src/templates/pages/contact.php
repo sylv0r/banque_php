@@ -1,6 +1,6 @@
 <?php
 
-$page_title = "Contact - MonSite.com";
+$page_title = "Contact";
 
 ob_start();
 

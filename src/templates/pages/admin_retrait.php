@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$page_title = "Admin contact - monsite.com";
+$page_title = "Admin contact ";
 $trans = $getRetrait -> take_retrait();
 $role = 200;
 ?>
@@ -9,22 +9,22 @@ $role = 200;
 
 <?php show_error(); ?>
 <div>
-<table class="tab">
-    <thead class="tab">
-        <tr class="tab">
-            <th>id</th>
-            <th>amount</th>
-            <th>created_by</th>
-            <th>created_at</th>
-            <th>currency</th>
-            <th> Acceptation</th>
+<table class="table">
+    <thead class="thead-dark">
+        <tr >
+            <th scope="col">id</th>
+            <th scope="col">amount</th>
+            <th scope="col">created_by</th>
+            <th scope="col">created_at</th>
+            <th scope="col">currency</th>
+            <th scope="col"> Acceptation</th>
         </tr>
     </thead>
-   <tbody class="tab">
+   <tbody>
     <?php
         foreach ($trans as $cform){ 
     ?>
-    <tr class="tab">
+    <tr>
          <td><?= $cform -> idd ?></td>
         <td><?= $cform -> amount?></td>
         <td><?= $cform -> email?></td>
@@ -37,8 +37,8 @@ $role = 200;
                 <input type="hidden" name="created_by" value="<?= $cform -> created_by?>">
                 <input type="hidden" name="to_currency" value="<?= $cform -> to_currency?>">
                 <input type="hidden" name="amount" value="<?= $cform -> amount?>">
-                <button type="submit" name="action" value="approve">Valider</button>
-                <button type="submit" name="action" value="reject">Refuser</button>
+                <button class="btn btn-outline-success" type="submit" name="action" value="approve">Valider</button>
+                <button class="btn btn-outline-danger" type="submit" name="action" value="reject">Refuser</button>
             </form> 
         </td>
     </tr>

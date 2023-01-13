@@ -1,5 +1,5 @@
 <?php
-$page_title = "Login - monsite.com";
+$page_title = "Login ";
 
 ob_start();
 show_error(); 

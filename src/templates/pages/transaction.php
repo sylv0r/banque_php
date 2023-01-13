@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$page_title = "Admin contact - monsite.com";
+$page_title = "Admin contact ";
 $trans = $getDepot -> take_transaction();
 $role = 200;
 ?>
@@ -10,8 +10,8 @@ $role = 200;
 <?php show_error(); ?>
 <div>
 <table class="tab">
-    <thead class="tab">
-        <tr class="tab">
+    <thead class="the">
+        <tr >
             <th>id</th>
             <th>amount</th>
             <th>id createur</th>

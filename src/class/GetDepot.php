@@ -26,15 +26,14 @@ class GetDepot{
         return $cur;
     }
     public function take_depot(){
-        $stmh = $this->db->prepare('SELECT *, transactions.id as idd, users.email, currencies.currency_name FROM transactions INNER JOIN users ON users.id = transactions.created_by INNER JOIN currencies ON currencies.id = transactions.to_currency WHERE approved is NULL ORDER BY transactions.id DESC');
+        $stmh = $this->db->prepare('SELECT *, transactions.id as idd, users.email, currencies.currency_name FROM transactions INNER JOIN users ON users.id = transactions.created_by INNER JOIN currencies ON currencies.id = transactions.to_currency WHERE approved is NULL && transaction_type = "depot" ORDER BY transactions.id DESC');
         //SELECT email FROM users INNER JOIN transactions ON transactions.created_by = users.id
         $stmh->execute();
         $donnees = $stmh->fetchAll(PDO::FETCH_CLASS, 'Transaction');
         return $donnees;
     }
     public function take_transaction(){
-        $stmh = $this->db->prepare('SELECT *, transactions.id as idd,transactions.created_at as cre, users.email, ap.email as ap, u1.email as u1, c1.currency_name as c1, currencies.currency_name FROM transactions INNER JOIN users ON users.id = transactions.created_by INNER JOIN currencies ON currencies.id = transactions.from_currency LEFT JOIN users u1 ON u1.id = transactions.recipient LEFT JOIN currencies c1 ON c1.id = transactions.to_currency LEFT JOIN users ap ON ap.id = transactions.approved_by
-        ORDER BY transactions.id DESC;');
+        $stmh = $this->db->prepare('SELECT *, transactions.id as idd,transactions.created_at as cre, users.email, ap.email as ap, u1.email as u1, c1.currency_name as c1, currencies.currency_name FROM transactions INNER JOIN users ON users.id = transactions.created_by INNER JOIN currencies ON currencies.id = transactions.from_currency LEFT JOIN users u1 ON u1.id = transactions.recipient LEFT JOIN currencies c1 ON c1.id = transactions.to_currency LEFT JOIN users ap ON ap.id = transactions.approved_by ORDER BY transactions.id DESC;');
         $stmh->execute();
         $donnees = $stmh->fetchAll(PDO::FETCH_CLASS, 'Transaction');
         return $donnees;

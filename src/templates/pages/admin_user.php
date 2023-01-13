@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$page_title = "Manager user - monsite.com";
+$page_title = "Manager user ";
 include('./../src/db.php');
 $requete = $userManager -> take_users();
 $role = 200;

@@ -1,6 +1,6 @@
 <?php
 
-$page_title = "Dépot - MonSite.com";
+$page_title = "Dépot";
 
 
 $currencies = $getDepot -> getCurencyName();

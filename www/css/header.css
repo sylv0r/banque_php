@@ -1,6 +1,7 @@
 header {
     background-color: #AFCBFF;
     display: flex;
+    text-align: center;
     align-items: center;
     padding-left: 70px;
     margin-bottom: 20px;

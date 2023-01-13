@@ -1,5 +1,5 @@
 <?php
-$page_title = "Compte Banquaire - monsite.com";
+$page_title = "Compte Banquaire ";
 
 ob_start();
 show_error();

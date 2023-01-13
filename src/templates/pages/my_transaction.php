@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$page_title = "Admin contact - monsite.com";
+$page_title = "Admin contact ";
 $trans = $getDepot -> take_my_transaction($_SESSION['user_id']);
 $role = 1;
 ?>
@@ -10,8 +10,8 @@ $role = 1;
 <?php show_error(); ?>
 <div>
 <table class="tab">
-    <thead class="tab">
-        <tr class="tab">
+    <thead class="the">
+        <tr>
         
             <th>montant</th>
             <th>created_by</th>
@@ -23,11 +23,11 @@ $role = 1;
     
         </tr>
     </thead>
-   <tbody class="tab">
+   <tbody >
     <?php
         foreach ($trans as $cform){ 
     ?>
-    <tr class="tab">
+    <tr>
        
         <td><?= $cform -> amount?></td>
         <td><?= $cform -> email?></td>
