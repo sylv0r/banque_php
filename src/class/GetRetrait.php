@@ -16,7 +16,7 @@ class GetRetrait{
         return $cur;
     }
     public function take_retrait(){
-        $stmh = $this->db->prepare('SELECT * FROM transactions WHERE approved is NULL && transaction_type = "retrait"');
+        $stmh = $this->db->prepare('SELECT *, transactions.id as idd, users.email, currencies.currency_name FROM transactions INNER JOIN users ON users.id = transactions.created_by INNER JOIN currencies ON currencies.id = transactions.to_currency WHERE approved is NULL && transaction_type = "retrait" ORDER BY transactions.id DESC ');
         $stmh->execute();
         $donnees = $stmh->fetchAll(PDO::FETCH_CLASS, 'Transaction');
         return $donnees;

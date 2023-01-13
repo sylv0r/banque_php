@@ -17,6 +17,8 @@
     <li><a href="/?page=transfer">Transfer</a></li>
     <li><a href="/?page=admin_contact">admin_contact</a></li>
     <li><a href="/?page=admin_user">admin_user</a></li>
+    <li><a href="/?page=transaction">transaction</a></li>
+    <li><a href="/?page=my_transaction">mes transaction</a></li>
     <li><a href="/actions/logout.php">logout</a></li>
     <?php } ?>
 </ul>

@@ -15,11 +15,17 @@ ob_start();
 
 <?php show_error(); ?>
 
-<h2>Vous avez <?= $totalcompte ?> sur votre compte</h2>
-
+<h2>Vous avez sur votre compte :</h2>
+<?php
+foreach($bankAccount as $currency) {
+                ?>
+                    <option value=<?= $currency->currency ?>><?= $currency->amount . " " . $currency->currency_name ?></option>
+                <?php
+            }
+            ?>
 <form action="/actions/send_retrait.php" method="post">
 <div class="input-group">
-  <input type="text" name="retrait" id="depot" class="form-control">
+  <input type="text" name="amount" id="depot" class="form-control">
   <div class="input-group-append">
   
   <label class="input-group-text" for="currency">Devise:</label>
@@ -35,7 +41,9 @@ ob_start();
     <?php
     }
     ?>
-    <input type="hidden" name="totalcompte" value= "<?= $totalcompte ?>">
+ 
+    <input type="hidden" name="currency_from" value=<?= $gcurrencies -> id ?>>
+
 
     <br>
   </select>

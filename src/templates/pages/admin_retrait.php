@@ -25,14 +25,15 @@ $role = 200;
         foreach ($trans as $cform){ 
     ?>
     <tr class="tab">
-        <td><?= $cform -> id?></td>
+         <td><?= $cform -> idd ?></td>
         <td><?= $cform -> amount?></td>
-        <td><?= $cform -> created_by?></td>
+        <td><?= $cform -> email?></td>
         <td><?= $cform -> created_at?></td>
-        <td><?= $cform -> from_currency?></td>
+        <td><?= $cform -> currency_name?></td>
+
         <td>
             <form action="/actions/update_transaction_retrait.php" method="post">
-                <input type="hidden" name="transaction_id" value="<?= $cform->id ?>">
+                <input type="hidden" name="transaction_id" value="<?= $cform->idd ?>">
                 <input type="hidden" name="created_by" value="<?= $cform -> created_by?>">
                 <input type="hidden" name="to_currency" value="<?= $cform -> to_currency?>">
                 <input type="hidden" name="amount" value="<?= $cform -> amount?>">
