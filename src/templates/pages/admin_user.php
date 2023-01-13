@@ -7,7 +7,7 @@ $role = 200;
 show_error();
 ?>
 
-<h1>Manager user</h1>
+<h1 style="text-align: center">Manager user</h1>
 
 <?php if (count($requete) > 0) { ?>
   <table class="table">
@@ -54,6 +54,6 @@ show_error();
   </table>
 <?php
 } else {
-  echo "Aucune demande en attente";
+  ?><p style="text-align: center">Aucune demande en attente</p><?php
 }
 $page_content = ob_get_clean();
