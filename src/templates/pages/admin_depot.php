@@ -59,7 +59,7 @@ $role = 200;
 
 <?php
     } else {
-    echo "Il n'y a pas de demande de dépôt en attente";
+        ?><p style="text-align: center; margin-bottom: 60px">Il n'y a pas de demande de dépôt en attente</p><?php
     }
 $page_content = ob_get_clean();
 ?>
