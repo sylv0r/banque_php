@@ -10,4 +10,4 @@ if (!isset($_POST['role'])) {
 
 $userManager->update_role($_POST['user_id'], $_POST['role']);
 
-header("Location: /?page=admin_user");
+header("Location: /?page=".$_POST["direction"]);

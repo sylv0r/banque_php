@@ -19,4 +19,18 @@ class CurrencyManager {
         $result = $stmh->fetch();
         return $result["currency_value"];
     }
+
+    public function get_currency_by_name($name) {
+        $stmh = $this->db->prepare('SELECT id FROM currencies WHERE currency_name = ?');
+        $stmh->execute([$name]);
+        $stmh->setFetchMode(PDO::FETCH_CLASS, 'Currency');
+        $result = $stmh->fetch();
+        return $result;
+    }
+
+    public function insert(Currency $currency) {
+        $sql = "INSERT INTO currencies(currency_name, currency_value) VALUES(?,?)";
+        $stmh = $this->db->prepare($sql);
+        $stmh->execute([$currency->currency_name, $currency->currency_value]);
+    }
 }
