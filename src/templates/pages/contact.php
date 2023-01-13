@@ -14,7 +14,7 @@ ob_start();
 <form action="/actions/send_contact.php" method="POST">
 	<div>
 		<label for="fullname">Votre nom complet</label>
-		<input type="text" id="fullname" name="fullname">
+		<input type="text" id="fullname" name="fullname" >
 	</div>
 	<div>
 		<label for="phone">Numero de Telephone</label>
