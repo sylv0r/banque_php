@@ -17,7 +17,7 @@ class BankAccountManager {
     function areFoundsEnough($bankAccount, $currency, $amount) {
         foreach ($bankAccount as $row) {
             if ($row->currency === $currency) {
-                if ($row->amount > $amount && $row->amount > 0) {
+                if ($row->amount >= $amount && $row->amount > 0) {
                     return true;
                 } else {
                     return false;
