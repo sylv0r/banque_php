@@ -9,13 +9,19 @@
         <link rel="stylesheet" href="/css/header.css">
 		<title><?= $page_title; ?></title>
 		<?= $head_metas ;?>
+		<script>
+			var e = document.getElementById("ddlViewBy");
+			var value = e.value;
+			var text = e.options[e.selectedIndex].text;
+		</script>
 	</head>
 	<body>
 		<?php 
 			require_once __DIR__ . "/partials/header.php"
 		?>
         <div class="menu">
-            <?php require_once __DIR__ . '/partials/menu.php' ?>
+            <?php if (count($userManager->getAllUsersExcept())>0) require_once __DIR__ . '/partials/menu.php';
+			require_once __DIR__ . "/partials/alert_success.php"?>
         </div>
 
 		<?php
@@ -27,8 +33,8 @@
         ?>
 		
 
-		<?php 
-		require_once __DIR__ . '/partials/footer.php';
-		?>
+			<?php 
+			require_once __DIR__ . '/partials/footer.php';
+			?>
 	</body>
 </html>
