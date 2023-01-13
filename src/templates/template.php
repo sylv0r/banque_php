@@ -31,6 +31,8 @@
 		<?php
             if (isset($user->role)) $actual_role = $user->role; 
             else $actual_role = 1;
+            if (isset($user->role)) $actual_role = $user->role; 
+            else $actual_role = 1;
 
             if ($actual_role >= $role) echo $page_content;
             else echo "Vous n'avez pas les droits";

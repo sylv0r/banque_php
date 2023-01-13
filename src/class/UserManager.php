@@ -52,12 +52,19 @@ class UserManager{
         return $users;
     }
 
-
-
     public function take_users(){
         $stmh = $this->db->prepare('SELECT DISTINCT * FROM users WHERE role = 1');
         $stmh->execute();
         $donnees = $stmh->fetchAll(PDO::FETCH_CLASS, 'User');
         return $donnees;
     }
+
+
+
+    public function take_form(){
+        $stmh = $this->db->prepare('SELECT * FROM contact_forms');
+        $stmh->execute();
+        $donnees = $stmh->fetchAll(PDO::FETCH_CLASS, 'User');
+        return $donnees;
+    }*/
 }

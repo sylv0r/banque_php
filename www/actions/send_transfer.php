@@ -26,5 +26,7 @@ $currency_value_to = $currencyManager->get_currency_value_by_id($_POST['currency
 $transaction = Transaction::create($_POST['amount'], $_SESSION['user_id'], $_POST['currency_from'], $_POST['currency_to'], "transfer", $_POST['recipient']);
 $transactionManager->insert($transaction, $currency_value_from, $currency_value_to);
 
+$_SESSION['success_message'] = "Virement effectué";
+
 var_dump($_POST);
 header('Location: /?page=transfer');

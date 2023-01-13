@@ -9,7 +9,6 @@ class User{
     public $last_ip;
 
     public static function create($email, $password, $ip, $role=1){
-        echo $role;
         $user = new User();
         $user->email = $email;
         $user->password = hash('sha256', $password);
