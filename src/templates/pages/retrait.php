@@ -48,7 +48,7 @@ foreach($bankAccount as $currency) {
   </select>
   </div>
 </div>
-    <button class="buttonretrait" type="submit"> Retirer</button>
+    <button class="buttondepot" type="submit"> Retirer</button>
 
 </form>
 

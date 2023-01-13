@@ -6,9 +6,10 @@ body,html{
 .container{
   position: absolute;
   text-align: center;
+  margin-top: -20px;
 }
 .footer-clean {
-    padding:50px 0;
+    padding:50px ;
     background-color:#AFCBFF;
     color:#4b4c4d;
     width: 100%;

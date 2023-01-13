@@ -60,11 +60,10 @@ class UserManager{
     }
 
 
-
     public function take_form(){
         $stmh = $this->db->prepare('SELECT * FROM contact_forms');
         $stmh->execute();
         $donnees = $stmh->fetchAll(PDO::FETCH_CLASS, 'User');
         return $donnees;
-    }*/
+    }
 }
