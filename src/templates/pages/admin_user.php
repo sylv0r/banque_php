@@ -41,7 +41,7 @@ show_error();
                 <td><?=$row->created_at?></td>
                 <td><?=$row->last_ip?></td>
                 <td>
-                <?php if ($role == 200) { ?>
+                <?php if ($role >= 200) { ?>
                     <input type="hidden" name="user_id" value="<?= $row->id ?>">
                     <button type="submit" class="btn btn-success btn-sm">Valider</button>
                 <?php } else echo "Vous n'avez pas les droits"; ?>
