@@ -9,6 +9,7 @@ $role = 200;
 
 <?php show_error(); ?>
 <div>
+<?php if (count($trans) > 0) { ?>
 <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -57,5 +58,8 @@ $role = 200;
 
 
 <?php
+    } else {
+    echo "Il n'y a pas de demande de dépôt en attente";
+    }
 $page_content = ob_get_clean();
 ?>
