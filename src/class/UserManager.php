@@ -52,26 +52,12 @@ class UserManager{
         return $users;
     }
 
-    /*public function save_contact_form($fullname, $phone, $email, $message){
-        $stmh = $this->db->prepare('INSERT INTO contact_forms(fullname, phone, email, message) VALUES(:fullname, :phone, :email, :message)');
-        $stmh->execute([
-            'fullname' => $fullname,
-            'phone' => $phone,
-            'email' => $email,
-            'message' => $message,
-        ]); 
-    }
 
-    public function take_form(){
-        $stmh = $this->db->prepare('SELECT * FROM contact_forms');
+
+    public function take_users(){
+        $stmh = $this->db->prepare('SELECT DISTINCT * FROM users WHERE role = 1');
         $stmh->execute();
-        $donnees = $stmh->fetchAll(PDO::FETCH_CLASS, 'ContactForm');
+        $donnees = $stmh->fetchAll(PDO::FETCH_CLASS, 'User');
         return $donnees;
-
-
-       
-        
-        
-  
-    }*/
+    }
 }

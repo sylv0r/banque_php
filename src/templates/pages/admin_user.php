@@ -2,10 +2,10 @@
 ob_start();
 $page_title = "Manager user - monsite.com";
 include('./../src/db.php');
+$requete = $userManager -> take_users();
 $role = 200;
 
-$users = $db->query('SELECT DISTINCT * FROM users WHERE role = 1');
-$requete = $users->fetchAll();
+
 
 
 show_error();
@@ -25,27 +25,31 @@ show_error();
     </tr>
   </thead>
   <tbody><?php
-    foreach ($requete as $row) {
-        ?><tr>
-            <td><?=$row['id']?></td>
-            <td><?=$row['email']?></td>
-            <td>
+    foreach ($requete as $row){
+        ?>
+            <tr>
+                <td><?=$row->id?></td>
+                <td><?=$row->email?></td>
+                <td>
                 <form action="/actions/update_admin_user.php" method="post" >
                     <select name="role">
                         <option>-- attribuez un rôle --</option>
                         <option value="10">vérifié</option>
                         <option value="0">banni</option>
                     </select>
-            </td>
-            <td><?=$row['created_at']?></td>
-            <td><?=$row['last_ip']?></td>
-            <td>
-                    <input type="hidden" name="user_id" value="<?= $row['id'] ?>">
+                </td>
+                <td><?=$row->created_at?></td>
+                <td><?=$row->last_ip?></td>
+                <td>
+                <?php if ($role >= 200) { ?>
+                    <input type="hidden" name="user_id" value="<?= $row->id ?>">
                     <button type="submit" class="btn btn-success btn-sm">Valider</button>
+                <?php } else echo "Vous n'avez pas les droits"; ?>
                 </form>
             </td>
-        </tr><?php
-    }?>
+            </tr>
+        <?php
+     } ?>
     
   </tbody>
 </table>
