@@ -4,7 +4,7 @@ class UserManager{
     private $db;
 
     function __construct($bdd){
-        $this->db = $bdd;
+        $this-> db = $bdd;
 
     }
 

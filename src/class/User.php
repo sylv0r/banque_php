@@ -26,8 +26,4 @@ class User{
         return $date->format('d/m/Y H:i:s');
     }
 
-    public function take_user(){
-        $stmh = $this->db->prepare('SELECT * FROM users');
-        $stmh->execute();
-    }
 }
