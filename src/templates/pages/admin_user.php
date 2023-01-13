@@ -43,7 +43,7 @@ show_error();
                 <td>
                 <?php if ($role >= 200) { ?>
                     <input type="hidden" name="user_id" value="<?= $row->id ?>">
-                    <button type="submit" class="btn btn-success btn-sm">Valider</button>
+                    <button type="submit" class="btn btn-outline-success btn-sm">Valider</button>
                 <?php } else echo "Vous n'avez pas les droits"; ?>
                 </form>
             </td>
