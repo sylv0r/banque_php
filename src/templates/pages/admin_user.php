@@ -4,10 +4,6 @@ $page_title = "Manager user - monsite.com";
 include('./../src/db.php');
 $requete = $userManager -> take_users();
 $role = 200;
-
-
-
-
 show_error();
 ?>
 
